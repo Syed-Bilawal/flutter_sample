@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/dashboard.dart';
+import 'package:my_app/rigister.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -85,7 +86,9 @@ class _MyLoginState extends State<MyLogin> {
 
                     ),
                     Row(children: [
-                      TextButton(onPressed: (){}, child: Text('Sign up', style: TextStyle(fontSize: 18),),  )
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MySign()));
+                      }, child: Text('Sign up', style: TextStyle(fontSize: 18),),  )
                     ],)
                   ],
                 ),
