@@ -10,6 +10,7 @@ class MySign extends StatefulWidget {
 }
 
 class _MySignState extends State<MySign> {
+  String email = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +18,7 @@ class _MySignState extends State<MySign> {
         child : Center(
         child: Container(child: Column(children: [
           TextField(
+            onChanged: (value) => email = email,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         hintText: 'Please enter your email',
@@ -54,16 +56,19 @@ class _MySignState extends State<MySign> {
           Row(
             children: [
               ElevatedButton(onPressed: (){
-                var email;
+                
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: email)));
               }, child: Text('Sign up' ,style: TextStyle( fontSize : 18),)
               )
             ],
           ),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             children: [
               TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyLogin()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyLogin()),);
               }, child: Text('already have acount!' , style: TextStyle(fontSize: 15),))
             ],
 
