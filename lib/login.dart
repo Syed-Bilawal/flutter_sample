@@ -81,7 +81,12 @@ class _MyLoginState extends State<MyLogin> {
                         )
                         ],
                       ),
-                    )
+                    
+
+                    ),
+                    Row(children: [
+                      TextButton(onPressed: (){}, child: Text('Sign up', style: TextStyle(fontSize: 18),),  )
+                    ],)
                   ],
                 ),
               ),
