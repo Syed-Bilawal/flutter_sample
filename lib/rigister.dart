@@ -58,7 +58,7 @@ class _MySignState extends State<MySign> {
               ElevatedButton(onPressed: (){
                 
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: email)));
-              }, child: Text('Sign up' ,style: TextStyle( fontSize : 18),)
+              }, child: Text('Sign up' ,style: TextStyle( color: Colors.black, fontSize : 18),)
               )
             ],
           ),

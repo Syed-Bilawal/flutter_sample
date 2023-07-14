@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_app/dashboard.dart';
 import 'package:my_app/rigister.dart';
 
@@ -12,6 +13,7 @@ class MyLogin extends StatefulWidget {
 class _MyLoginState extends State<MyLogin> {
   String email = '';
   TextEditingController emailC = TextEditingController();
+  TextEditingController abc = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -24,8 +26,10 @@ class _MyLoginState extends State<MyLogin> {
                   children: [
                    
                    TextField(
+                       
                       controller: emailC,
-                        onChanged:(value) => email = value,
+
+                        onChanged:(value) => email = emailC.text,
                         decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         hintText: 'email',
@@ -39,6 +43,7 @@ class _MyLoginState extends State<MyLogin> {
                     const SizedBox(
                       height: 30,
                     ),TextField(
+                      controller: abc,
                         obscureText: true,
                         decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
@@ -46,29 +51,33 @@ class _MyLoginState extends State<MyLogin> {
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
                         ),
                       ),
-                    
+                    SizedBox(
+                      height: 20,
+                    ),
                     
                     SizedBox(
-                      width: 400,
+                      width: 500,
                       child: Row(
+
+                        
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text('Sign in',style: TextStyle(
-                          color: Color(0xff4c505b),
+                        children:  [ ElevatedButton(onPressed: (){
+                          if (emailC.text == '' && abc.text == '' ) {
+                            Get.dialog(Text('Error'));
+                            print("please enter email");
+                          }
+                          else{ Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));
+}
+                          
+                        }, child:  Text('Sign in',style: TextStyle(
+                          color: Colors.white,
                           fontSize: 27,
                         fontWeight: FontWeight.w700),
-                        ),                      
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: Color(0xff4c505b),
-                          child: IconButton(
-                            onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));},
-                            icon: Icon(Icons.arrow_forward),                               
-                            ),                        
-                            ),
+                         )   ),                      
+                        
                             CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xff4c505b),
+                          backgroundColor: Color.fromARGB(255, 29, 29, 29),
                           child: IconButton(
                             onPressed: (){
                               emailC.clear();},
@@ -77,18 +86,18 @@ class _MyLoginState extends State<MyLogin> {
                             ),
                             CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xff4c505b),
+                          backgroundColor: Color.fromARGB(255, 27, 27, 27),
                           child: IconButton(
                             onPressed: (){
                               print(emailC.text);
                               },
-                            icon: Icon(Icons.delete),                               
+                            icon: Icon(Icons.print),                               
                             ),                        
                             ),
 
                             CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xff4c505b),
+                          backgroundColor: Color.fromARGB(255, 27, 27, 27),
                           child: IconButton(
                             onPressed: (){
                               emailC.text = "Bilawal";},
@@ -97,6 +106,9 @@ class _MyLoginState extends State<MyLogin> {
                             ),
                         ],
                       ),                   
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                      SizedBox(
                       width: 200,
