@@ -27,8 +27,7 @@ class _MyLoginState extends State<MyLogin> {
                    
                    TextField(
                        
-                      controller: emailC,
-
+                      controller: emailC,                     
                         onChanged:(value) => email = emailC.text,
                         decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
@@ -61,13 +60,20 @@ class _MyLoginState extends State<MyLogin> {
 
                         
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  [ ElevatedButton(onPressed: (){
-                          if (emailC.text == '' && abc.text == '' ) {
-                            Get.dialog(Text('Error'));
-                            print("please enter email");
+                        children:  [ ElevatedButton(onPressed: (){      
+
+                          if (emailC.text != '' || abc.text != '' ) {
+                            if(emailC.text.isEmail){
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));
+
+                            }
+                            else{
+                              print('Please enter valid email');
+                            }
+                            
+                            
                           }
-                          else{ Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));
-}
+                          else{print("please enter email"); }
                           
                         }, child:  Text('Sign in',style: TextStyle(
                           color: Colors.white,
