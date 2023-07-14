@@ -17,6 +17,11 @@ class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(title: Text('Welcome to the login page'),
+      actions: <Widget>[
+        IconButton(onPressed: (){}, icon: Icon(Icons.settings))
+      ],
+      ),
         body: Center(
           
               child: Padding(
