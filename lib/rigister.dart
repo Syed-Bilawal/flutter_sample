@@ -14,9 +14,12 @@ class _MySignState extends State<MySign> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Welcome to the Sign up screen'),),
       body: SafeArea(
         child : Center(
-        child: Container(child: Column(children: [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
           TextField(
             onChanged: (value) => email = email,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
@@ -74,7 +77,6 @@ class _MySignState extends State<MySign> {
 
           )
         ]
-        ),
         )
         ),
 

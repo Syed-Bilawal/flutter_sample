@@ -64,21 +64,17 @@ class _MyLoginState extends State<MyLogin> {
 
                           if (emailC.text != '' || abc.text != '' ) {
                             if(emailC.text.isEmail){
-                               Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));
-
-                            }
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));}
                             else{
                               print('Please enter valid email');
-                            }
-                            
-                            
+                            }                                   
                           }
                           else{print("please enter email"); }
                           
                         }, child:  Text('Sign in',style: TextStyle(
                           color: Colors.white,
                           fontSize: 27,
-                        fontWeight: FontWeight.w700),
+                        fontWeight: FontWeight.normal),
                          )   ),                      
                         
                             CircleAvatar(
@@ -117,12 +113,13 @@ class _MyLoginState extends State<MyLogin> {
                       height: 20,
                     ),
                      SizedBox(
-                      width: 200,
-                      
+                      width: 500,
                        child: Row(children: [
+                        Container(child:Text('Did not have account?', style: TextStyle(fontSize: 18, color: Color(0xff4c505b)), )  ),
                         TextButton(onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => MySign()));
-                        }, child: Text('Sign up', style: TextStyle(
+                        }, 
+                        child: Text('Sign up', style: TextStyle(
                           color: Color(0xff4c505b),
                           fontSize: 18),), 
                          )
