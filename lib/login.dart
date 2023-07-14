@@ -72,7 +72,7 @@ class _MyLoginState extends State<MyLogin> {
                             if(emailC.text.isEmail){
                                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));}
                             else{
-                              print('Please enter valid email');
+                              print('Please enter valid email first');
                             }                                   
                           }
                           else{print("please enter email"); }
