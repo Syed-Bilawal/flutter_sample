@@ -24,6 +24,7 @@ class _MySignState extends State<MySign> {
             onChanged: (value) => email = email,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
+                        icon: Icon(Icons.email),
                         hintText: 'Please enter your email',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
 
@@ -36,6 +37,7 @@ class _MySignState extends State<MySign> {
           TextField(
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
+                        icon: Icon(Icons.person),
                         hintText: 'Enter your Username',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
 
@@ -49,6 +51,7 @@ class _MySignState extends State<MySign> {
           TextField(
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
+                        icon: Icon(Icons.password),
                         hintText: 'Please enter Password',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
           )

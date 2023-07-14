@@ -37,7 +37,7 @@ class _MyLoginState extends State<MyLogin> {
                         decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         hintText: 'email',
-
+                        icon: Icon(Icons.email),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
                         
                         ),keyboardType: TextInputType.emailAddress,
@@ -51,6 +51,7 @@ class _MyLoginState extends State<MyLogin> {
                         obscureText: true,
                         decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
+                        icon: Icon(Icons.password),
                         hintText: 'password',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
                         ),
@@ -121,6 +122,7 @@ class _MyLoginState extends State<MyLogin> {
                       width: 500,
                        child: Row(children: [
                         Container(child:Text('Did not have account?', style: TextStyle(fontSize: 18, color: Color(0xff4c505b)), )  ),
+                        Icon(Icons.arrow_forward),
                         TextButton(onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => MySign()));
                         }, 
