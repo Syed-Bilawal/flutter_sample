@@ -11,101 +11,112 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   String email = '';
+  TextEditingController emailC = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        backgroundColor: Colors.blue,
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(left: 35, top: 130),
-                child: Text('', style: TextStyle(color: Colors.white, fontSize: 33
-                  ),),
-              ),
-            ),
-            Center(
-              child: Container(
-               
-                child: SizedBox(
-                
-                  
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: 200,
+    return  Scaffold(
+        body: Center(
+          
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                   
+                   TextField(
+                      controller: emailC,
+                        onChanged:(value) => email = value,
+                        decoration: InputDecoration(fillColor: Colors.grey.shade100,
+                        filled: true,
+                        hintText: 'email',
+
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
                         
-                        child: TextField(
+                        ),keyboardType: TextInputType.emailAddress,
                         
-                          onChanged:(value) => email = value,
-                          decoration: InputDecoration(fillColor: Colors.grey.shade100,
-                          filled: true,
-                          hintText: 'email',
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
-                          
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      SizedBox(
-                        width: 200,
-                        
-                        child: TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(fillColor: Colors.grey.shade100,
-                          filled: true,
-                          hintText: 'password',
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
-                          ),
-                        ),
-                      ),
                       
-                      SizedBox(
-                        width: 200,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Sign in',style: TextStyle(
-                            color: Color(0xff4c505b),
-                            fontSize: 27,
-                          fontWeight: FontWeight.w700),
-                          ),                      
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Color(0xff4c505b),
-                            child: IconButton(
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: email)));},
-                              icon: Icon(Icons.arrow_forward),                               
-                              ),                        
-                              ),
-                          ],
-                        ),                   
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(fillColor: Colors.grey.shade100,
+                        filled: true,
+                        hintText: 'password',
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+                        ),
                       ),
-                       SizedBox(
-                        width: 200,
-                        
-                         child: Row(children: [
-                          TextButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MySign()));
-                          }, child: Text('Sign up', style: TextStyle(
-                            color: Color(0xff4c505b),
-                            fontSize: 18),), 
-                           )
-                                           ],),
-                       )
-                    ],
                     
-                  ),
+                    
+                    SizedBox(
+                      width: 400,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [Text('Sign in',style: TextStyle(
+                          color: Color(0xff4c505b),
+                          fontSize: 27,
+                        fontWeight: FontWeight.w700),
+                        ),                      
+                        CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Color(0xff4c505b),
+                          child: IconButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));},
+                            icon: Icon(Icons.arrow_forward),                               
+                            ),                        
+                            ),
+                            CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Color(0xff4c505b),
+                          child: IconButton(
+                            onPressed: (){
+                              emailC.clear();},
+                            icon: Icon(Icons.remove),                               
+                            ),                        
+                            ),
+                            CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Color(0xff4c505b),
+                          child: IconButton(
+                            onPressed: (){
+                              print(emailC.text);
+                              },
+                            icon: Icon(Icons.delete),                               
+                            ),                        
+                            ),
+
+                            CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Color(0xff4c505b),
+                          child: IconButton(
+                            onPressed: (){
+                              emailC.text = "Bilawal";},
+                            icon: Icon(Icons.arrow_forward),                               
+                            ),                        
+                            ),
+                        ],
+                      ),                   
+                    ),
+                     SizedBox(
+                      width: 200,
+                      
+                       child: Row(children: [
+                        TextButton(onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => MySign()));
+                        }, child: Text('Sign up', style: TextStyle(
+                          color: Color(0xff4c505b),
+                          fontSize: 18),), 
+                         )
+                                         ],),
+                     )
+                  ],
+                  
                 ),
-                
               ),
-              
-            )
-          ],
-        ),
+            
+          
+      
       ),
 
 
