@@ -27,7 +27,7 @@ class _MySignState extends State<MySign> {
           children: [
           TextField(
             controller: emailC,
-            onChanged: (value) => email = email,
+            onChanged: (value) => email = emailC.text,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         icon: Icon(Icons.email),
