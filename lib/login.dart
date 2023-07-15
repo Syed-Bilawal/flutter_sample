@@ -68,7 +68,7 @@ class _MyLoginState extends State<MyLogin> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children:  [ ElevatedButton(onPressed: (){      
 
-                          if (emailC.text != '' || abc.text != '' ) {
+                          if (emailC.text != '' && abc.text != '' ) {
                             if(emailC.text.isEmail){
                                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: emailC.text)));}
                             else{

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/dashboard.dart';
 import 'package:my_app/login.dart';
+import 'package:get/get.dart';
 
 class MySign extends StatefulWidget {
   const MySign({super.key});
@@ -11,6 +12,10 @@ class MySign extends StatefulWidget {
 
 class _MySignState extends State<MySign> {
   String email = '';
+  TextEditingController emailC = TextEditingController();
+  TextEditingController abc = TextEditingController();
+  TextEditingController user = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +26,7 @@ class _MySignState extends State<MySign> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
           TextField(
+            controller: emailC,
             onChanged: (value) => email = email,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
@@ -35,6 +41,7 @@ class _MySignState extends State<MySign> {
             height: 30,
           ),
           TextField(
+            controller: user,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         icon: Icon(Icons.person),
@@ -49,6 +56,7 @@ class _MySignState extends State<MySign> {
 
           ),
           TextField(
+            controller: abc,
              decoration: InputDecoration(fillColor: Colors.grey.shade100,
                         filled: true,
                         icon: Icon(Icons.password),
@@ -62,8 +70,18 @@ class _MySignState extends State<MySign> {
           Row(
             children: [
               ElevatedButton(onPressed: (){
+                if (emailC.text != '' && abc.text != '' && user.text != '' ) {
+                            if(emailC.text.isEmail){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: email)));
+
+                              }
+                            else{
+                              print('Please enter valid email first');
+                            }                                   
+                          }
+                          else{print("please enter email"); }
+                          
                 
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDashboard(email: email)));
               }, child: Text('Sign up' ,style: TextStyle( color: Colors.black, fontSize : 18),)
               )
             ],
